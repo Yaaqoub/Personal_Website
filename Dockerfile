@@ -1,4 +1,7 @@
-FROM node:8
+FROM node:carbon
+WORKDIR /usr/src/app
+COPY package*.json ./
 RUN npm install
-CMD node ./bin/www
-EXPOSE 3000
+COPY . .
+EXPOSE 80
+CMD [ "npm", "start" ]
